@@ -1,0 +1,14 @@
+.lead {
+    opacity: 0;
+    animation: 800ms ease-in 1200ms forwards fade-in;
+}
+
+.article {
+    opacity: 0;
+    animation: 800ms ease-in 2000ms forwards fade-in;
+
+    p {
+        opacity: 0;
+        animation: 800ms ease-in 2600ms forwards fade-in;
+    }
+}

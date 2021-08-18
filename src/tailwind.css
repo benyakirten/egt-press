@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .layout {
+        @apply flex justify-between items-center w-full font-sans;
+    }
+    .slideshow-button {
+        @apply mx-9 text-lg;
+    }
+    .header {
+        @apply text-2xl pb-2 flex justify-center underline;
+    }
+    .lead {
+        @apply p-1 my-6;
+    }
+    .article {
+        @apply my-6 flex-1;
+    }
+    .article h3 {
+        @apply my-4 text-lg;
+    }
+    .article p {
+        @apply text-base;
+    }
+}

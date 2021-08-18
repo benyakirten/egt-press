@@ -1,0 +1,95 @@
+@mixin horizontal-bar {
+	display: flex;
+	width: 100%;
+	height: 6rem;
+}
+
+@mixin hover-fadein {
+	transition: all 0.6s ease-in-out;
+	opacity: 0.8;
+	&:hover {
+		opacity: 1;
+	}
+
+	@include respond(no-hover) {
+		opacity: 1;
+	}
+}
+
+@mixin hover-bar {
+	position: relative;
+
+	&::after {
+		content: '';
+
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		width: 100%;
+		height: 2px;
+
+		background-color: #000;
+
+		transition: transform 0.35s ease-in-out;
+		transform-origin: left;
+		transform: scaleX(0);
+	}
+
+	&:hover{
+        &::after {
+            transform: scaleX(1);
+        }
+    }
+}
+
+@mixin photo-expand-on-hover {
+}
+
+@mixin absolute-centter {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin absolute-positioned($x, $y) {
+	position: absolute;
+	top: $y;
+	left: $x;
+	transform: translate(-$x, -$y);
+}
+
+@mixin centered-column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+@mixin respond($breakpoint) {
+	@if $breakpoint == phone {
+		@media only screen and (max-width: 37.5em) {
+			@content;
+		} // 600px
+	}
+	@if $breakpoint == tab-port {
+		@media only screen and (max-width: 56.25em) {
+			@content;
+		} // 900px
+	}
+	@if $breakpoint == tab-land {
+		@media only screen and (max-width: 75em) {
+			@content;
+		} // 1200px
+	}
+	@if $breakpoint == bdesk {
+		@media only screen and (min-width: 112.5em) {
+			@content;
+		} // 1800px
+	}
+	@if $breakpoint == no-hover {
+		@media only screen and (hover: none) {
+			@content;
+		}
+	}
+}
