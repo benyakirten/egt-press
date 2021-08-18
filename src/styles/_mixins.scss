@@ -43,29 +43,6 @@
     }
 }
 
-@mixin photo-expand-on-hover {
-}
-
-@mixin absolute-centter {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-@mixin absolute-positioned($x, $y) {
-	position: absolute;
-	top: $y;
-	left: $x;
-	transform: translate(-$x, -$y);
-}
-
-@mixin centered-column {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
 @mixin respond($breakpoint) {
 	@if $breakpoint == phone {
 		@media only screen and (max-width: 37.5em) {

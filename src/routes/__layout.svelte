@@ -11,7 +11,7 @@
 
 	export let path: string;
 </script>
-<div class="mx-36">
+<div class="mx-8 sm:mx-8 lg:mx-36">
 	<nav class="layout h-24 text-2xl">
 		<a class="flex items-center" class:active-route={path === ''} href="/">
 			<img class="h-9 mr-2" src="/static/favicon.png" alt="EGT Press Logo" />

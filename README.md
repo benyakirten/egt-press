@@ -22,4 +22,4 @@ This is the first time that I used SvelteKit and the first time that I used Tail
 * Add testing
 
 ## Changelog:
-* 8/17/2021: Initial release
+* 8/17/2021: Initial release and a little bit of media queries

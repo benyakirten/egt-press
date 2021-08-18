@@ -1,5 +1,7 @@
 <script lang="ts">
 	export let book: IBook;
+
+	let futureBook = book.pubDate.valueOf() > Date.now();
 </script>
 
 <section>
@@ -13,6 +15,9 @@
 		<p class="text-lg">{book.desc}</p>
 	</div>
 	<ul role="list" class="my-4">
+		<li>
+			{futureBook ? 'Coming out on' : 'Published on'} {book.pubDate.toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+		</li>
         <li>
             Genres: {book.keywords.join(', ')}
         </li>

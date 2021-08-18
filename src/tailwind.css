@@ -4,7 +4,7 @@
 
 @layer components {
     .layout {
-        @apply flex justify-between items-center w-full font-sans;
+        @apply flex flex-col py-4 mb-8 md:py-0 md:mb-0 md:flex-row justify-between items-center w-full font-sans;
     }
     .slideshow-button {
         @apply mx-9 text-lg;
