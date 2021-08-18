@@ -24,4 +24,13 @@
     .article p {
         @apply text-base;
     }
+    .hidden-before-md {
+        @apply hidden invisible md:block md:visible;
+    }
+    .hidden-after-md {
+        @apply block visible md:hidden md:invisible;
+    }
+    main {
+       @apply font-serif; 
+    }
 }

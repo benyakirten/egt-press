@@ -23,3 +23,7 @@ This is the first time that I used SvelteKit and the first time that I used Tail
 
 ## Changelog:
 * 8/17/2021: Initial release and a little bit of media queries
+* 8/18/2021:
+> * Change transitions for BookTransition, add second set of buttons to SlideShow on small media queries;
+> * Found out that when building for production (not dev!) img src routes default to the static/ folder!
+> * Prepared for a Vercel deployment

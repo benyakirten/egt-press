@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module" lang="ts">
 	export const hydrate = false;
 </script>
 
@@ -13,7 +13,7 @@
 
 <div class="lead">
 	<h1 class="header my-4">Welcome to the home of our craft publishing company</h1>
-	<img class="mx-auto" src="/static/watercolor.jpg" alt="A mesmerizing watercolor">
+	<img class="mx-auto" src="illustrations/watercolor.jpg" alt="A mesmerizing watercolor">
 </div>
 
 <div class="flex">

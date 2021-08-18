@@ -1,5 +1,6 @@
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
+
 	export let person: IPerson;
     export let alignLeft = true;
     export let open = false;

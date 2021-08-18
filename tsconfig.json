@@ -27,8 +27,7 @@
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"],
 			"$data/*": ["src/data/*"],
-			"$comps/*": ["src/components/*"],
-			"$covers/*": ["static/covers/*"]
+			"$comps/*": ["src/components/*"]
 		}
 	},
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]

@@ -49,7 +49,9 @@
 </script>
 
 <section class="flex justify-center items-center h-64">
-	<button class="slideshow-button" on:click={moveLeft}>&larr;</button>
+	<div class="hidden-before-md">
+		<button class="slideshow-button" on:click={moveLeft}>&larr;</button>
+	</div>
 	<SlideshowImage
 		on:select={() => setIndexAndNavigate(indexMinusTwo)}
 		image={books[indexMinusTwo].image}
@@ -77,8 +79,14 @@
 		alt={books[indexPlusTwo].title}
 		position="secondary"
 	/>
-	<button class="slideshow-button" on:click={moveRight}>&rarr;</button>
+	<div class="hidden-before-md">
+		<button class="slideshow-button" on:click={moveRight}>&rarr;</button>
+	</div>
 </section>
+<div class="hidden-after-md flex justify-center">
+	<button class="slideshow-button" on:click={moveLeft}>&larr;</button>
+	<button class="slideshow-button" on:click={moveRight}>&rarr;</button>
+</div>
 
 <style lang="scss">
 	.slideshow-button {
