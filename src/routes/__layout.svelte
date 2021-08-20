@@ -14,7 +14,7 @@
 <div class="mx-8 sm:mx-8 lg:mx-36">
 	<nav class="layout h-24 text-2xl">
 		<a class="flex items-center" class:active-route={path === ''} href="/">
-			<img class="h-11 mr-2" src="illustrations/girl.png" alt="EGT Press Logo" />
+			<img class="h-11 mr-2" src="/illustrations/girl.png" alt="EGT Press Logo" />
 			Home
 		</a>
 		<a class:active-route={path.includes('books')} href="/books"> Books </a>

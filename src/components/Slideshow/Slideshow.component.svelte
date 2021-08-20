@@ -1,56 +1,32 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import { goto } from '$app/navigation';
+
 	import SlideshowImage from './SlideshowImage.component.svelte';
 
 	export let books: IBook[];
 	export let index: number = 0;
 
-	let indexMinusOne = index === 0 ? books.length - 1 : index - 1;
-	let indexMinusTwo = indexMinusOne === 0 ? books.length -1 : indexMinusOne - 1;
+	const dispatch = createEventDispatcher();
 
-	let indexPlusOne = index === books.length - 1 ? 0 : index + 1;
-	let indexPlusTwo = indexPlusOne === books.length -1 ? 0 : indexPlusOne + 1;
+	$: indexMinusOne = index === 0 ? books.length - 1 : index - 1;
+	$: indexMinusTwo = indexMinusOne === 0 ? books.length - 1 : indexMinusOne - 1;
 
-	function moveLeft() {
-		indexPlusTwo = indexPlusOne;
-		indexPlusOne = index;
-		index = indexMinusOne;
-		indexMinusOne = indexMinusTwo;
-		indexMinusTwo = indexMinusTwo === 0 ? books.length - 1 : indexMinusTwo - 1;
-
-		navigateToIndex();
-	}
-
-	function moveRight() {
-		indexMinusTwo = indexMinusOne;
-		indexMinusOne = index;
-		index = indexPlusOne;
-		indexPlusOne = indexPlusTwo;
-		indexPlusTwo = indexPlusTwo === books.length - 1 ? 0 : indexPlusTwo + 1;
-
-		navigateToIndex();
-	}
+	$: indexPlusOne = index === books.length - 1 ? 0 : index + 1;
+	$: indexPlusTwo = indexPlusOne === books.length - 1 ? 0 : indexPlusOne + 1;
 
 	function setIndexAndNavigate(idx: number) {
+		dispatch('select', idx < index ? 'left' : 'right');
 		index = idx;
-
-		indexMinusOne = index === 0 ? books.length - 1 : index - 1;
-		indexMinusTwo = indexMinusOne === 0 ? books.length -1 : indexMinusOne - 1;
-
-		indexPlusOne = index === books.length - 1 ? 0 : index + 1;
-		indexPlusTwo = indexPlusOne === books.length -1 ? 0 : indexPlusOne + 1;
-
-		navigateToIndex();
-	}
-
-	function navigateToIndex() {
 		goto(`/books/${books[index].title}`);
 	}
 </script>
 
 <section class="flex justify-center items-center h-64">
 	<div class="hidden-before-md">
-		<button class="slideshow-button" on:click={moveLeft}>&larr;</button>
+		<button class="slideshow-button" on:click={() => setIndexAndNavigate(indexMinusOne)}>
+			&larr;
+		</button>
 	</div>
 	<SlideshowImage
 		on:select={() => setIndexAndNavigate(indexMinusTwo)}
@@ -64,7 +40,11 @@
 		alt={books[indexMinusOne].title}
 		position="secondary"
 	/>
-	<SlideshowImage on:select={e => goto(`/books/${e.detail}`)} image={books[index].image} alt={books[index].title}>
+	<SlideshowImage
+		on:select={(e) => goto(`/books/${e.detail}`)}
+		image={books[index].image}
+		alt={books[index].title}
+	>
 		<p class="text-xs text-center">{books[index].title}</p>
 	</SlideshowImage>
 	<SlideshowImage
@@ -79,13 +59,21 @@
 		alt={books[indexPlusTwo].title}
 		position="secondary"
 	/>
+
 	<div class="hidden-before-md">
-		<button class="slideshow-button" on:click={moveRight}>&rarr;</button>
+		<button class="slideshow-button" on:click={() => setIndexAndNavigate(indexPlusOne)}>
+			&rarr;
+		</button>
 	</div>
 </section>
+
 <div class="hidden-after-md flex justify-center">
-	<button class="slideshow-button" on:click={moveLeft}>&larr;</button>
-	<button class="slideshow-button" on:click={moveRight}>&rarr;</button>
+	<button class="slideshow-button" on:click={() => setIndexAndNavigate(indexMinusOne)}>
+		&larr;
+	</button>
+	<button class="slideshow-button" on:click={() => setIndexAndNavigate(indexPlusOne)}>
+		&rarr;
+	</button>
 </div>
 
 <style lang="scss">

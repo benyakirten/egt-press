@@ -25,5 +25,6 @@ This is the first time that I used SvelteKit and the first time that I used Tail
 * 8/17/2021: Initial release and a little bit of media queries
 * 8/18/2021:
 > * Change transitions for BookTransition, add second set of buttons to SlideShow on small media queries;
-> * Found out that when building for production (not dev!) img src routes default to the static/ folder!
+> * Found out that when building for production (not dev!) img src routes default to the /static/ folder. I somehow didn't know this.
 > * Prepared for a Vercel deployment
+* 8/19/2021: Changed slideshow to use reactive values, add two directions for book transition. Reduced redundant goto call in /books/__layout.svelte

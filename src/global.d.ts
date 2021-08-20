@@ -22,3 +22,5 @@ interface IPerson {
 }
 
 type ImagePosition = 'primary' | 'secondary';
+type AnimationDirection = 'right' | 'left';
+type SvelteAnimation = (node: Element, { delay, duration, easing }?: FadeParams) => TransitionConfig
