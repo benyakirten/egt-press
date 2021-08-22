@@ -13,8 +13,6 @@ export const post: RequestHandler = async (req) => {
             body: { error: 'Email and/or message invalid' }
         };
     }
-    console.log(variables.DB_URI);
-    console.log(process.env.VITE_DB_URI);
     try {
         const client = await MongoClient.connect(variables.DB_URI as string);
         const db = client.db();
