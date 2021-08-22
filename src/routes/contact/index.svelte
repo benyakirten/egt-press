@@ -36,6 +36,7 @@ import Error from '../__error.svelte';
 				body: JSON.stringify({ email, message })
 			});
 			const data = await res.json();
+			console.log(data);
 			alertMessage = data.response;
 			messageType = 'success';
 		} catch (e) {
@@ -99,7 +100,7 @@ import Error from '../__error.svelte';
 <div>
 	<h3 class="block-title">English Garden Talk Press</h3>
 	<p><a href="mailto:contact@egtpress.com">By email</a></p>
-	<p>By mail: 566 McCaslin Boulevard, POB 270252, Superior, Colorado, 80027-998</p>
+	<p>By mail: 566 McCaslin Boulevard, POB 270252, Superior, Colorado, 80027-9998</p>
 	<p>
 		<a
 			href="https://www.facebook.com/English-Garden-Talk-Press-2023488454570609/"
