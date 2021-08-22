@@ -10,21 +10,23 @@
 	let loading = false;
 
 	let alertMessage: string | undefined | null;
-	let messageType: MessageType;
+	let alertMessageType: MessageType;
+	let alertTimeout: NodeJS.Timeout | undefined;
+	
 
 	async function onSubmit(e: any) {
 		if (!e.target.email.value || !e.target.message.value) {
-			messageType = 'error';
+			alertMessageType = 'error';
 			alertMessage = 'Email and message must be filled out';
 			return;
 		}
 		if (!EMAIL_REGEX.test(e.target.email.value)) {
-			messageType = 'error';
+			alertMessageType = 'error';
 			alertMessage = 'Email is not a valid email address';
 			return;
 		}
 		loading = true;
-		messageType = null;
+		alertMessageType = null;
 		await submitQuestion(e.target.email.value, e.target.message.value);
 	}
 
@@ -36,22 +38,30 @@
 			});
 			const data = await res.json();
 			alertMessage = data.response;
-			messageType = 'success';
+			alertMessageType = 'success';
 		} catch (e) {
 			alertMessage = `${e} -- Unable to send your message, sorry. Please try again later`;
-			messageType = 'error';
+			alertMessageType = 'error';
 		} finally {
-			if (!alertMessage && !messageType) {
+			if (!alertMessage && !alertMessageType) {
 				alertMessage = `Something went wrong. This feature does not appear to work yet. You must send an email manually, unfortunately.`;
-				messageType = 'error';
+				alertMessageType = 'error';
 			}
 			loading = false;
+			setAlertTimeout();
 		}
+	}
+
+	function setAlertTimeout() {
+		if (alertTimeout) {
+			window.clearTimeout(alertTimeout);
+		}
+		alertTimeout = setTimeout(() => dismissMessage(), 4000);
 	}
 
 	function dismissMessage() {
 		alertMessage = null;
-		messageType = null;
+		alertMessageType = null;
 	}
 </script>
 
@@ -63,8 +73,8 @@
 	/>
 </svelte:head>
 
-{#if alertMessage && messageType}
-	<Alert {messageType} on:dismiss={dismissMessage}>
+{#if alertMessage && alertMessageType}
+	<Alert messageType={alertMessageType} on:dismiss={dismissMessage}>
 		{alertMessage}
 	</Alert>
 {/if}
