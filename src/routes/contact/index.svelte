@@ -36,7 +36,6 @@ import Error from '../__error.svelte';
 				body: JSON.stringify({ email, message })
 			});
 			const data = await res.json();
-			console.log(data);
 			alertMessage = data.response;
 			messageType = 'success';
 		} catch (e) {
