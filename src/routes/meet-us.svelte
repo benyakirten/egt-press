@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-	import Person from "$/components/General/Person.component.svelte";
+	import Person from "$comps/General/Person.component.svelte";
 	export let people: IPerson[];
 
 	let openPerson: string | null = people[0].name;

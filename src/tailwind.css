@@ -30,6 +30,9 @@
     .hidden-after-md {
         @apply block visible md:hidden md:invisible;
     }
+    .block-title {
+        @apply text-xl my-2;
+    }
     main {
        @apply font-serif; 
     }

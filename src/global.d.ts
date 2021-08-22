@@ -22,5 +22,8 @@ interface IPerson {
 }
 
 type ImagePosition = 'primary' | 'secondary';
+type ButtonType = 'button' | 'submit' | 'reset';
+type InputType = 'text' | 'textarea';
 type AnimationDirection = 'right' | 'left';
+type MessageType = 'success' | 'error' | null;
 type SvelteAnimation = (node: Element, { delay, duration, easing }?: FadeParams) => TransitionConfig

@@ -9,10 +9,10 @@ module.exports = {
 			serif: ['Quattrocento Sans', 'sans-serif']
 		},
 		colors: {
-			white: colors.white,
 			black: colors.black,
-			blue: colors.blue,
-			gray: colors.warmGray,
+			white: colors.white,
+			success: colors.green[600],
+			error: colors.red[600]
 		}
 	},
 	variants: {
