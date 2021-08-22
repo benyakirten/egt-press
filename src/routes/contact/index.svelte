@@ -39,9 +39,13 @@ import Error from '../__error.svelte';
 			alertMessage = data.response;
 			messageType = 'success';
 		} catch (e) {
-			alertMessage = `${e}. Unable to send your message, sorry. Please try again later`;
+			alertMessage = `${e} -- Unable to send your message, sorry. Please try again later`;
 			messageType = 'error';
 		} finally {
+			if (!alertMessage && !messageType) {
+				alertMessage = `Something went wrong. This feature does not appear to work yet. You must send an email manually, unfortunately.`;
+				messageType = 'error';
+			}
 			loading = false;
 		}
 	}
