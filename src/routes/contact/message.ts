@@ -1,6 +1,6 @@
 import type { RequestHandler } from '@sveltejs/kit';
 
-import { MongoClient } from 'mongodb';
+import sgMail from '@sendgrid/mail';
 
 import { variables } from '$lib/variables';
 import { EMAIL_REGEX } from '$/lib/constants';
@@ -14,14 +14,16 @@ export const post: RequestHandler = async (req) => {
         };
     }
     try {
-        const client = await MongoClient.connect(variables.DB_URI as string);
-        const db = client.db();
-        await db.collection('messages').insertOne({ email, message });
-        client.close();
-        return {
-            status: 200,
-            body: { response: 'Message sent successfully '}
+        sgMail.setApiKey(variables.API_KEY as string);
+        const msg = {
+            to: variables.EMAIL_TO as string,
+            from: variables.EMAIL_FROM as string,
+            subject: `Message from ${email}`,
+            text: message,
+            html: `<strong>${message}</strong>`
         };
+        await sgMail.send(msg);
+        return { body: { response: 'Message sent. We\'ll respond as soon as possible.' } };
     } catch (e) {
         return {
             status: 500,

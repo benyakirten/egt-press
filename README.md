@@ -28,4 +28,4 @@ This is the first time that I used SvelteKit and the first time that I used Tail
 > * Found out that when building for production (not dev!) img src routes default to the /static/ folder. I somehow didn't know this.
 > * Prepared for a Vercel deployment
 * 8/19/2021: Changed slideshow to use reactive values, add two directions for book transition. Reduced redundant goto call in /books/__layout.svelte
-* 8/21/2021: Added a direct message component to the /contact route. It sends the message to a MongoDB that will be checked occasionally.
+* 8/21/2021: Added a direct message component to the /contact route. It used to collect messages in a database but now sends the data to sendgrid, which emails the client.

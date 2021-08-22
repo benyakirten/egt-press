@@ -6,7 +6,6 @@
 	import Alert from '$comps/General/Alert.component.svelte';
 
 	import Input from '$comps/Input/Input.component.svelte';
-import Error from '../__error.svelte';
 
 	let loading = false;
 

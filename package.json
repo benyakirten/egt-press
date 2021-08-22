@@ -31,6 +31,6 @@
   },
   "type": "module",
   "dependencies": {
-    "mongodb": "^4.1.0"
+    "@sendgrid/mail": "^7.4.6"
   }
 }
