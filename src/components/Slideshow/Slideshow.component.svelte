@@ -9,11 +9,19 @@
 
 	const dispatch = createEventDispatcher();
 
-	$: indexMinusOne = index === 0 ? books.length - 1 : index - 1;
-	$: indexMinusTwo = indexMinusOne === 0 ? books.length - 1 : indexMinusOne - 1;
+	$: indexMinusOne = getPreviousIndex(index);
+	$: indexMinusTwo = getPreviousIndex(indexMinusOne);
 
-	$: indexPlusOne = index === books.length - 1 ? 0 : index + 1;
-	$: indexPlusTwo = indexPlusOne === books.length - 1 ? 0 : indexPlusOne + 1;
+	$: indexPlusOne = getNextIndex(index);
+	$: indexPlusTwo = getNextIndex(indexPlusOne);
+
+	function getNextIndex(idx: number) {
+		return idx === 0 ? books.length - 1 : idx - 1;
+	}
+
+	function getPreviousIndex(idx: number) {
+		return idx === books.length - 1 ? 0 : idx + 1;
+	}
 
 	function setIndexAndNavigate(idx: number) {
 		dispatch('select', idx < index ? 'left' : 'right');

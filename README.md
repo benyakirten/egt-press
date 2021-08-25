@@ -32,3 +32,6 @@ This is the first time that I used SvelteKit and the first time that I used Tail
 > * Added a direct message component to the /contact route. It collects messages in a database for later review
 > * Updated the /contact route so now it sends an email using SendGrid
 > * Added a timeout so alert messages go away after a moment
+* 8/24/2021:
+> * Made it so the books didn't have to be resorted on every page load on the /books route
+> * Fixed it so the slideshow selected book no longer loads from parsing the page route but from the title of the book selected.

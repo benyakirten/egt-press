@@ -66,6 +66,8 @@ export const books: IBook[] = [
     }
 ];
 
+export const sortedBooks = books.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
+
 export const people: IPerson[] = [
     {
         name: 'Gloria T. August',

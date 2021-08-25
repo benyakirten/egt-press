@@ -1,32 +1,32 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit';
 
-	import { books } from '$/data/writing';
-	import Slideshow from '$/components/Slideshow/Slideshow.component.svelte';
+	import { sortedBooks } from '$/data/writing';
 
 	export const load: Load = ({ page }) => ({
 		props: {
-			path: page.path,
-			books: books.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime())
+			title: page.params['title'],
+			books: sortedBooks
 		}
 	});
 </script>
 
 <script lang="ts">
+	import Slideshow from '$/components/Slideshow/Slideshow.component.svelte';
 	import BookTransition from '$comps/Transitions/BookTransition.component.svelte';
 
+	
 	export let books: IBook[];
-	export let path: string;
+	export let title: string;
 
 	let direction: AnimationDirection = 'right';
 
-	let bookIndex = books
+	$: bookIndex = books
 		.map(b => b.title)
-		.indexOf(path.split('/')[2]);
+		.indexOf(title);
 
-	function setTransitionDirection(e: CustomEvent<AnimationDirection>) {
+	const setTransitionDirection = (e: CustomEvent<AnimationDirection>) =>
 		direction = e.detail;
-	}
 </script>
 
 <header class="flex flex-col items-center my-10">
@@ -36,6 +36,6 @@
 	</div>
 </header>
 
-<BookTransition refresh={path} {direction}>
+<BookTransition refresh={title} {direction}>
 	<slot />
 </BookTransition>
