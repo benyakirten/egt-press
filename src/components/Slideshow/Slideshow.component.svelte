@@ -3,6 +3,7 @@
 	import { goto } from '$app/navigation';
 
 	import SlideshowImage from './SlideshowImage.component.svelte';
+	import { titleToKebab } from '$/lib/strings';
 
 	export let books: IBook[];
 	export let index: number = 0;
@@ -26,7 +27,7 @@
 	function setIndexAndNavigate(idx: number) {
 		dispatch('select', idx < index ? 'left' : 'right');
 		index = idx;
-		goto(`/books/${books[index].title}`);
+		goto(`/books/${titleToKebab(books[index].title)}`);
 	}
 </script>
 

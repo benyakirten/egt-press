@@ -31,7 +31,7 @@
 		<a class:active-route={path === 'privacy-policy'} href="/privacy-policy"> Privacy Policy </a>
 		<a class:active-route={path === 'contact'} href="/contact"> Contact </a>
 		<div class="text-xs">
-			<p>&COPY; 2021 by English Garden Talk Press</p>
+			<p>&COPY; 2021 by English Garden Talk Press. All Rights Reserved.</p>
 		</div>
 	</footer>
 </div>

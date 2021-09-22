@@ -8,7 +8,8 @@
 {#key refresh}
 	<div
 		in:fly={{ x: (direction === 'right' ? -1 : 1) * 100, duration: 800, delay: 800 }}
-		out:fly={{ x: (direction === 'right' ? 1 : -1) * 100, duration: 800 }}>
+		out:fly={{ x: (direction === 'right' ? 1 : -1) * 100, duration: 800 }}
+	>
 		<slot />
 	</div>
 {/key}

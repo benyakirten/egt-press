@@ -3,23 +3,28 @@
 
 	import { sortedBooks } from '$/data/writing';
 
-	export const load: Load = ({ page }) => ({
+	export const load: Load = () => ({
 		props: {
-			title: page.params['title'],
 			books: sortedBooks
 		}
 	});
 </script>
 
 <script lang="ts">
+	import { onDestroy } from 'svelte';
+	import { page } from '$app/stores';
+
 	import Slideshow from '$/components/Slideshow/Slideshow.component.svelte';
 	import BookTransition from '$comps/Transitions/BookTransition.component.svelte';
-
 	
 	export let books: IBook[];
-	export let title: string;
-
+	
 	let direction: AnimationDirection = 'right';
+	let title: string;
+	
+	let unSub = page.subscribe(i => title = i.params['title']);
+
+	onDestroy(unSub)
 
 	$: bookIndex = books
 		.map(b => b.title)
