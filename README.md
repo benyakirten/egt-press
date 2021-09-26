@@ -35,4 +35,5 @@ This is the first time that I used SvelteKit and the first time that I used Tail
 * 8/24/2021:
 > * Made it so the books didn't have to be resorted on every page load on the /books route
 > * Fixed it so the slideshow selected book no longer loads from parsing the page route but from the title of the book selected.
-> 9/22/2021: Made it so book titles are kebab cased as page titles (more legible) and fixed the book slideshow so it would animate properly if the user navigated to a book from the /books page (the majority of the time). This was g=happening because a layout only loads its serverside code once once in Sveltekit for everything that's a page of that sub directory.
+> 9/22/2021: Made it so book titles are kebab cased as page urls (more legible) and fixed the book slideshow so it would animate properly if the user navigated to a book from the /books page (the majority of the time). This was happening because a layout only loads its serverside code once once in Sveltekit for everything that's a page of that sub directory.
+> 9/25/2021: A quick update to some links

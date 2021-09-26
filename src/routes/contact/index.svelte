@@ -126,7 +126,7 @@
 		<a href="mailto:ben@benyakiredits.com"> By email </a>
 	</p>
 	<p>
-		<a href="https://benyakiredits.com/about-me/contact/" rel="external" target="blank">
+		<a href="https://benyakir-writes.com/contact" rel="external" target="blank">
 			On his blog
 		</a>
 	</p>
