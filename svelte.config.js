@@ -15,7 +15,6 @@ const config = {
 					'$lib': path.resolve('./src/lib'),
 					'$data': path.resolve('./src/data'),
 					'$comps': path.resolve('./src/components')
-					
 				}
 			}
 		},

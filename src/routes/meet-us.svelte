@@ -30,7 +30,7 @@
 </svelte:head>
 
 <div>
-	<h1 class="header">Meet Us</h1>
+	<h1 class="header">The People of EGT Press</h1>
 	{#each people as person, index (person.name)}
 		<Person
 			{person}

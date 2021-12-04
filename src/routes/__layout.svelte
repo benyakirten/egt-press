@@ -13,12 +13,12 @@
 </script>
 <div class="mx-8 sm:mx-8 lg:mx-36">
 	<nav class="layout h-24 text-2xl">
-		<a class="flex items-center" class:active-route={path === ''} href="/">
+		<a class="flex items-center" class:active-route={path === ''} sveltekit:noscroll href="/">
 			<img class="h-11 mr-2" src="/illustrations/girl.png" alt="EGT Press Logo" />
 			Home
 		</a>
-		<a class:active-route={path.includes('books')} href="/books"> Books </a>
-		<a class:active-route={path === 'meet-us'} href="/meet-us"> Meet Us </a>
+		<a class:active-route={path.includes('books')} sveltekit:noscroll href="/books"> Books </a>
+		<a class:active-route={path === 'meet-us'} sveltekit:noscroll href="/meet-us"> Meet Us </a>
 	</nav>
 	
 	<main class="min-h-screen">
@@ -28,8 +28,8 @@
 	</main>
 	
 	<footer class="layout h-14 text-lg">
-		<a class:active-route={path === 'privacy-policy'} href="/privacy-policy"> Privacy Policy </a>
-		<a class:active-route={path === 'contact'} href="/contact"> Contact </a>
+		<a class:active-route={path === 'privacy-policy'} sveltekit:noscroll href="/privacy-policy"> Privacy Policy </a>
+		<a class:active-route={path === 'contact'} sveltekit:noscroll href="/contact"> Contact </a>
 		<div class="text-xs">
 			<p>&COPY; 2021 by English Garden Talk Press. All Rights Reserved.</p>
 		</div>
